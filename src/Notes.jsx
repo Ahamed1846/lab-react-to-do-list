@@ -9,28 +9,20 @@ class Notes extends Component {
       value: ""
     };
   }
-
+  
   handleAdd = () => {
-    let Input = document.getElementById("input");
-    let Output = document.getElementById("output");
-
-    if (Input.value.length !== 0) {
-      Output.innerHTML +=
-        `<div>
-          <input type="text" placeholder="Type here" value="${Input.value}"/>
-          <input type="button" value="Del item" onClick={this.handleDel}>
-        </div>`;
-    } else {
-      Output.innerHTML += "";
+    const input = document.getElementById("input");
+    const output = document.getElementById("output");
+  
+    if (input.value.trim()) {
+      const newDiv = document.createElement("div");
+      newDiv.innerHTML = `<input type="text" placeholder="Type here" value="${input.value}"/><input type="button" value="Del item"/>`;
+      newDiv.querySelector('input[type="button"]').onclick = () => newDiv.remove();
+      output.appendChild(newDiv);
     }
-
-    Input.value = "";
+  
+    input.value = "";
     this.setState({ value: "" });
-  }
-
-  handleDel = (e) => {
-    console.log("test");
-    e.target.parentNode.remove();
   }
 
   render() {
