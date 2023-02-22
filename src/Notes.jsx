@@ -14,7 +14,7 @@ class Notes extends Component {
     const input = document.getElementById("input");
     const output = document.getElementById("output");
   
-    if (input.value.trim()) {
+    if ((input.value.length)!==0) {
       const newDiv = document.createElement("div");
       newDiv.innerHTML = `<input type="text" placeholder="Type here" value="${input.value}"/><input type="button" value="Del item"/>`;
       newDiv.querySelector('input[type="button"]').onclick = () => newDiv.remove();
