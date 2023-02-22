@@ -1,10 +1,8 @@
-import './App.css';
-import Editor from './component/Editor'
-
+import Notes from './Notes'
 function App() {
   return (
     <div className="App">
-      <Editor/>
+      <Notes/>
     </div>
   );
 }
